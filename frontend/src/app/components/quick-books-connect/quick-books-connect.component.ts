@@ -10,7 +10,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
     NzButtonModule
   ],
   templateUrl: './quick-books-connect.component.html',
-  styleUrl: './quick-books-connect.component.sass'
+  styleUrl: './quick-books-connect.component.scss'
 })
 export class QuickBooksConnectComponent {
 
