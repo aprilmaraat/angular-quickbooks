@@ -1,3 +1,4 @@
+using AngularQuickbooks.Server.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AngularQuickbooks.Server.Controllers
@@ -6,6 +7,8 @@ namespace AngularQuickbooks.Server.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
+        private IQuickbooksOnline _qboCache;
+
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -13,9 +16,10 @@ namespace AngularQuickbooks.Server.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IQuickbooksOnline qboCache)
         {
             _logger = logger;
+            _qboCache = qboCache;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
